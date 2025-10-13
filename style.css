@@ -4,10 +4,22 @@
     box-sizing: border-box;
 }
 
+:root {
+    --primary: #2c3e50;
+    --secondary: #3498db;
+    --accent: #e74c3c;
+    --fantasy: #9b59b6;
+    --scifi: #1abc9c;
+    --light: #ecf0f1;
+    --dark: #2c3e50;
+    --superiora: #8e44ad;
+    --moscow: #2980b9;
+}
+
 body {
     font-family: 'Raleway', sans-serif;
     line-height: 1.6;
-    color: #333;
+    color: var(--dark);
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
 }
 
@@ -17,21 +29,73 @@ body {
     padding: 0 20px;
 }
 
+/* Навигация */
+.navbar {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-logo span {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary);
+}
+
+.nav-menu {
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: var(--dark);
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: var(--fantasy);
+}
+
 /* Герой-секция */
 .hero {
     height: 100vh;
-    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('images/cover.jpg') center/cover;
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('images/cover.jpg') center/cover;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
     color: white;
+    margin-top: 0;
 }
 
 .hero-overlay {
-    background: rgba(0,0,0,0.6);
     padding: 2rem;
-    border-radius: 10px;
+}
+
+.hero-badge {
+    background: var(--accent);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 25px;
+    font-size: 0.9rem;
+    margin-bottom: 2rem;
+    display: inline-block;
 }
 
 .hero-title {
@@ -39,102 +103,332 @@ body {
     font-size: 3.5rem;
     margin-bottom: 1rem;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    line-height: 1.2;
 }
 
 .hero-subtitle {
     font-size: 1.5rem;
     margin-bottom: 2rem;
     font-weight: 300;
+    color: var(--light);
+}
+
+.hero-annotation {
+    max-width: 600px;
+    margin: 0 auto 3rem;
+    font-size: 1.2rem;
+    line-height: 1.8;
 }
 
 .cta-button {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
     padding: 15px 30px;
-    background: #ff6b6b;
+    background: var(--fantasy);
     color: white;
     text-decoration: none;
     border-radius: 50px;
     font-weight: 600;
     transition: all 0.3s ease;
-    border: 2px solid #ff6b6b;
+    border: 2px solid var(--fantasy);
+    font-size: 1.1rem;
 }
 
 .cta-button:hover {
     background: transparent;
     border-color: white;
+    transform: translateY(-2px);
 }
 
 /* Секции */
 section {
-    padding: 80px 0;
+    padding: 100px 0;
 }
 
-.about {
-    background: white;
-}
-
-.characters, .gallery {
-    background: #f8f9fa;
-}
-
-.about h2, .characters h2, .gallery h2 {
+.section-title {
     font-family: 'Playfair Display', serif;
     font-size: 2.5rem;
     text-align: center;
     margin-bottom: 3rem;
-    color: #2c3e50;
+    color: var(--primary);
+}
+
+.subsection-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    text-align: center;
+    margin: 3rem 0 2rem;
+    color: var(--secondary);
 }
 
 /* О романе */
-.about-content {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: 4rem;
-    align-items: center;
+.about {
+    background: white;
 }
 
-.about-text p {
-    margin-bottom: 1.5rem;
-    font-size: 1.1rem;
-    line-height: 1.8;
-}
-
-.highlight {
-    background: linear-gradient(120deg, #a8edea 0%, #fed6e3 100%);
-    padding: 2rem;
-    border-radius: 10px;
-    font-weight: 600;
-    font-size: 1.2rem;
-    border-left: 4px solid #667eea;
-}
-
-.question {
-    font-style: italic;
-    color: #666;
-    text-align: center;
-    font-size: 1.3rem;
-    margin-top: 2rem;
-}
-
-.about-image img {
-    width: 100%;
-    border-radius: 10px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-    transition: transform 0.3s ease;
-}
-
-.about-image img:hover {
-    transform: scale(1.05);
-}
-
-/* Персонажи */
-.characters-grid {
+.about-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
 }
 
-.character-card {
+.about-card {
+    background: var(--light);
+    padding: 2rem;
+    border-radius: 10px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.about-card:hover {
+    transform: translateY(-5px);
+}
+
+.about-card i {
+    font-size: 3rem;
+    color: var(--fantasy);
+    margin-bottom: 1rem;
+}
+
+.about-card h3 {
+    color: var(--primary);
+    margin-bottom: 1rem;
+}
+
+/* Персонажи */
+.characters {
+    background: #f8f9fa;
+}
+
+.protagonists-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+    gap: 3rem;
+    margin-bottom: 4rem;
+}
+
+.character-hero {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    display: flex;
+}
+
+.character-image {
+    flex: 0 0 200px;
+}
+
+.character-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.character-info {
+    flex: 1;
+    padding: 2rem;
+}
+
+.character-info h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    color: var(--primary);
+    margin-bottom: 0.5rem;
+}
+
+.character-role {
+    color: var(--secondary);
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.character-goal, .character-flaw {
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    background: var(--light);
+    border-radius: 5px;
+}
+
+.character-world {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--fantasy);
+    font-weight: 600;
+}
+
+/* Антагонисты */
+.antagonists-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 2rem;
+}
+
+.character-villain {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.villain-image {
+    height: 200px;
+    background: linear-gradient(135deg, var(--dark), var(--accent));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.villain-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.abstract-villain {
+    color: white;
+    font-size: 4rem;
+}
+
+.villain-info {
+    padding: 2rem;
+}
+
+.villain-info h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    color: var(--accent);
+    margin-bottom: 0.5rem;
+}
+
+.villain-role {
+    color: var(--dark);
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.villain-goal, .villain-trait {
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    background: #ffeaea;
+    border-radius: 5px;
+    border-left: 4px solid var(--accent);
+}
+
+/* Миры */
+.worlds {
+    background: white;
+}
+
+.worlds-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+}
+
+.world-card {
+    background: var(--light);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.world-header {
+    padding: 2rem;
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.world-header.superiora {
+    background: linear-gradient(135deg, var(--superiora), #6c3483);
+}
+
+.world-header.moscow {
+    background: linear-gradient(135deg, var(--moscow), #21618c);
+}
+
+.world-header.organizations {
+    background: linear-gradient(135deg, #27ae60, #229954);
+}
+
+.world-header i {
+    font-size: 2rem;
+}
+
+.world-header h3 {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.world-content {
+    padding: 2rem;
+}
+
+.world-characters h4 {
+    color: var(--primary);
+    margin: 1.5rem 0 1rem;
+}
+
+.world-characters ul {
+    list-style: none;
+    padding: 0;
+}
+
+.world-characters li {
+    padding: 0.3rem 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.world-characters li:last-child {
+    border-bottom: none;
+}
+
+.organization {
+    margin-bottom: 1.5rem;
+}
+
+.organization h4 {
+    color: var(--primary);
+    margin-bottom: 0.5rem;
+}
+
+/* Особенности */
+.features {
+    background: #f8f9fa;
+}
+
+.usp-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    text-align: center;
+    margin-bottom: 3rem;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    border-left: 5px solid var(--fantasy);
+}
+
+.usp-card h3 {
+    color: var(--primary);
+    margin-bottom: 1rem;
+}
+
+.usp-card p {
+    font-size: 1.2rem;
+    font-style: italic;
+    color: var(--dark);
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.feature-item {
     background: white;
     padding: 2rem;
     border-radius: 10px;
@@ -143,138 +437,173 @@ section {
     transition: transform 0.3s ease;
 }
 
-.character-card:hover {
-    transform: translateY(-10px);
+.feature-item:hover {
+    transform: translateY(-5px);
 }
 
-.character-img {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    object-fit: cover;
+.feature-item i {
+    font-size: 2.5rem;
+    color: var(--scifi);
     margin-bottom: 1rem;
-    border: 5px solid #667eea;
 }
 
-.character-card h3 {
-    color: #2c3e50;
+.feature-item h4 {
+    color: var(--primary);
     margin-bottom: 1rem;
-    font-family: 'Playfair Display', serif;
 }
 
-/* Галерея */
-.gallery-grid {
+/* Автор */
+.author {
+    background: white;
+}
+
+.author-profile {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 2rem;
+    grid-template-columns: 300px 1fr;
+    gap: 3rem;
+    align-items: start;
 }
 
-.gallery-item {
+.author-image {
     text-align: center;
 }
 
-.gallery-item img {
+.author-image img {
     width: 100%;
-    height: 250px;
-    object-fit: cover;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: transform 0.3s ease;
+    max-width: 250px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
 }
 
-.gallery-item img:hover {
-    transform: scale(1.05);
-}
-
-.gallery-item p {
-    margin-top: 1rem;
-    font-weight: 600;
-    color: #2c3e50;
-}
-
-/* Цитата */
-.quote {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
-    text-align: center;
-}
-
-.quote blockquote {
+.author-info h3 {
     font-family: 'Playfair Display', serif;
     font-size: 2rem;
-    font-style: italic;
-    max-width: 800px;
-    margin: 0 auto;
+    color: var(--primary);
+    margin-bottom: 2rem;
 }
 
-/* Модальное окно */
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 1000;
+.author-education, .author-achievements, .author-writing, .author-social {
+    margin-bottom: 2rem;
+}
+
+.author-info h4 {
+    color: var(--secondary);
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+.author-info ul {
+    list-style: none;
+    padding: 0;
+}
+
+.author-info li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #eee;
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.author-info li:before {
+    content: "•";
+    color: var(--fantasy);
+    position: absolute;
     left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0,0,0,0.9);
 }
 
-.modal-content {
-    display: block;
-    margin: auto;
-    max-width: 90%;
-    max-height: 90%;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    border-radius: 10px;
+.social-links {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
 }
 
-.close {
-    position: absolute;
-    top: 20px;
-    right: 35px;
-    color: white;
-    font-size: 40px;
-    font-weight: bold;
-    cursor: pointer;
-    z-index: 1001;
+.social-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: var(--light);
+    border-radius: 25px;
 }
 
-.close:hover {
-    color: #ff6b6b;
+.social-item i {
+    color: var(--fantasy);
 }
 
 /* Футер */
-footer {
-    background: #2c3e50;
+.footer {
+    background: var(--dark);
     color: white;
-    text-align: center;
-    padding: 2rem 0;
+    padding: 3rem 0;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-brand h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
 }
 
 /* Адаптивность */
 @media (max-width: 768px) {
+    .nav-menu {
+        display: none;
+    }
+    
     .hero-title {
         font-size: 2.5rem;
     }
     
-    .hero-subtitle {
-        font-size: 1.2rem;
-    }
-    
-    .about-content {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-    }
-    
-    .characters-grid,
-    .gallery-grid {
+    .protagonists-grid {
         grid-template-columns: 1fr;
     }
     
-    .quote blockquote {
-        font-size: 1.5rem;
+    .character-hero {
+        flex-direction: column;
+    }
+    
+    .character-image {
+        flex: none;
+        height: 200px;
+    }
+    
+    .author-profile {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    
+    .footer-content {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+    
+    .social-links {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: 2rem;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .protagonists-grid,
+    .antagonists-grid,
+    .worlds-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .container {
+        padding: 0 15px;
     }
 }

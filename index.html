@@ -3,18 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Затравленная заика Гелена | Фэнтези роман</title>
+    <title>Книга Мироздания. Грань Реальности | Молодежное фэнтези</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Raleway:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
+    <!-- Навигация -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span>Книга Мироздания</span>
+            </div>
+            <div class="nav-menu">
+                <a href="#about" class="nav-link">О романе</a>
+                <a href="#characters" class="nav-link">Персонажи</a>
+                <a href="#worlds" class="nav-link">Миры</a>
+                <a href="#author" class="nav-link">Автор</a>
+            </div>
+        </div>
+    </nav>
+
     <!-- Герой-секция -->
     <header class="hero">
         <div class="hero-overlay">
             <div class="container">
-                <h1 class="hero-title">Затравленная заика Гелена</h1>
-                <p class="hero-subtitle">Когда фэнтези становится реальностью, а реальность — иллюзией</p>
-                <a href="#about" class="cta-button">Узнать историю</a>
+                <div class="hero-badge">2025 • tavrida.art</div>
+                <h1 class="hero-title">Книга Мироздания<br>Грань Реальности</h1>
+                <p class="hero-subtitle">Молодежное городское фэнтези</p>
+                <div class="hero-annotation">
+                    <p>Юная писательница становится изгоем и погружается в свой выдуманный мир, пока тот не прорывается в реальность</p>
+                </div>
+                <a href="#characters" class="cta-button">
+                    <i class="fas fa-book-open"></i>
+                    Узнать историю
+                </a>
             </div>
         </div>
     </header>
@@ -22,91 +45,288 @@
     <!-- О романе -->
     <section id="about" class="about">
         <div class="container">
-            <h2>Мир из рукописи ожил</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <p>Мир <strong>Супериора</strong>, где принц Норайер бросил вызов королю из-за Книги Мироздания, вырвался за пределы страниц. Найденный таинственный блокнот стёр грань между реальностью и фэнтези.</p>
-                    
-                    <p>Всё рухнуло, когда Норайер материализовался в классе. Теперь за ней охотятся, а могущественные силы вербуют в свою игру.</p>
-                    
-                    <p class="highlight">Гелена должна из жертвы стать творцом — Хранителем Книги Мироздания.</p>
-                    
-                    <p class="question">Неужели это правда?<br>
-                    И как управлять мирозданием, если не можешь справиться с собой?</p>
+            <h2 class="section-title">О романе</h2>
+            <div class="about-grid">
+                <div class="about-card">
+                    <i class="fas fa-users"></i>
+                    <h3>Ключевая аудитория</h3>
+                    <p>Молодежь 16-25 лет, поклонники городского фэнтези и научной фантастики</p>
                 </div>
-                <div class="about-image">
-                    <img src="images/cover.jpg" alt="Обложка романа" id="main-image">
+                <div class="about-card">
+                    <i class="fas fa-map-marked-alt"></i>
+                    <h3>Места действия</h3>
+                    <p>Супериора • Домодедово • Москва</p>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Галерея персонажей -->
-    <section class="characters">
-        <div class="container">
-            <h2>Ключевые персонажи</h2>
-            <div class="characters-grid">
-                <div class="character-card">
-                    <img src="images/helena.jpg" alt="Гелена" class="character-img">
-                    <h3>Гелена</h3>
-                    <p>Затравленная заика, обнаружившая, что обладает силой изменять реальность через письмо.</p>
-                </div>
-                <div class="character-card">
-                    <img src="images/norayer.jpg" alt="Норайер" class="character-img">
-                    <h3>Норайер</h3>
-                    <p>Принц Супериоры, бросивший вызов королю и вырвавшийся за пределы книги.</p>
-                </div>
-                <div class="character-card">
-                    <img src="images/notebook.jpg" alt="Таинственный блокнот" class="character-img">
-                    <h3>Блокнот Мироздания</h3>
-                    <p>Артефакт, стирающий границы между реальностью и фэнтези.</p>
+                <div class="about-card">
+                    <i class="fas fa-dragon"></i>
+                    <h3>Жанр</h3>
+                    <p>Молодежное городское фэнтези с элементами научной фантастики</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Галерея миров -->
-    <section class="gallery">
+    <!-- Главные герои -->
+    <section id="characters" class="characters">
         <div class="container">
-            <h2>Миры романа</h2>
-            <div class="gallery-grid">
-                <div class="gallery-item">
-                    <img src="images/superiora.jpg" alt="Супериора" data-enlargable>
-                    <p>Супериора — мир принца Норайера</p>
+            <h2 class="section-title">Главные герои</h2>
+            
+            <!-- Протагонисты -->
+            <div class="character-section">
+                <h3 class="subsection-title">Протагонисты</h3>
+                <div class="protagonists-grid">
+                    <div class="character-hero">
+                        <div class="character-image">
+                            <img src="helena.jpg" alt="Гелена Баженова">
+                        </div>
+                        <div class="character-info">
+                            <h4>Гелена Баженова, 17 лет</h4>
+                            <p class="character-role">Юная писательница из Домодедово</p>
+                            <div class="character-goal">
+                                <strong>Цель:</strong> Доказать всему миру, что она чего-то стоит, стать ученым
+                            </div>
+                            <div class="character-flaw">
+                                <strong>Слабость:</strong> Запуганная заика, которая не может постоять за себя
+                            </div>
+                            <div class="character-world">
+                                <i class="fas fa-globe-europe"></i>
+                                Реальный мир
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="character-hero">
+                        <div class="character-image">
+                            <img src="norayer.jpg" alt="Норайер">
+                        </div>
+                        <div class="character-info">
+                            <h4>Норайер, 17 лет</h4>
+                            <p class="character-role">Принц Супериоры</p>
+                            <div class="character-goal">
+                                <strong>Цель:</strong> Возродить технологии древних, чтобы спасти мир
+                            </div>
+                            <div class="character-flaw">
+                                <strong>Слабость:</strong> За него вечно все делают другие
+                            </div>
+                            <div class="character-world">
+                                <i class="fas fa-dragon"></i>
+                                Супериора
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="gallery-item">
-                    <img src="images/classroom.jpg" alt="Класс" data-enlargable>
-                    <p>Реальный мир, где всё началось</p>
-                </div>
-                <div class="gallery-item">
-                    <img src="images/universe-book.jpg" alt="Книга Мироздания" data-enlargable>
-                    <p>Книга Мироздания — источник силы</p>
+            </div>
+
+            <!-- Антагонисты -->
+            <div class="character-section">
+                <h3 class="subsection-title">Антагонисты</h3>
+                <div class="antagonists-grid">
+                    <div class="character-villain">
+                        <div class="villain-image">
+                            <img src="images/characters/deimos.jpg" alt="Деймос">
+                        </div>
+                        <div class="villain-info">
+                            <h4>Деймос</h4>
+                            <p class="villain-role">Темный властелин Супериоры</p>
+                            <div class="villain-goal">
+                                <strong>Цель:</strong> Возродить технологии древних, чтобы править миром
+                            </div>
+                            <div class="villain-trait">
+                                <strong>Характер:</strong> Полагается только на себя
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="character-villain">
+                        <div class="villain-image">
+                            <div class="abstract-villain">
+                                <i class="fas fa-users"></i>
+                            </div>
+                        </div>
+                        <div class="villain-info">
+                            <h4>Мир</h4>
+                            <p class="villain-role">Семья и одноклассники</p>
+                            <div class="villain-goal">
+                                <strong>Роль:</strong> Социальное давление и непонимание
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Цитата -->
-    <section class="quote">
+    <!-- Миры романа -->
+    <section id="worlds" class="worlds">
         <div class="container">
-            <blockquote>
-                "Слова обладают силой. Но настоящая магия начинается, когда слова начинают владеть тобой."
-            </blockquote>
+            <h2 class="section-title">Миры романа</h2>
+            <div class="worlds-grid">
+                <div class="world-card">
+                    <div class="world-header superiora">
+                        <i class="fas fa-dragon"></i>
+                        <h3>Супериора</h3>
+                    </div>
+                    <div class="world-content">
+                        <p>"Вынужденное" средневековье на осколках величия цивилизации предков</p>
+                        <div class="world-characters">
+                            <h4>Персонажи Супериоры:</h4>
+                            <ul>
+                                <li>Король Гарм – отец Нияна, Норайера и Инги</li>
+                                <li>Ниян - старший брат Норайера</li>
+                                <li>Инга – сестра-двойняшка Норайера</li>
+                                <li>Фенэя – невеста Норайера</li>
+                                <li>Бенну – старим (раса антропоморфных птиц)</li>
+                                <li>Карл – правая рука Деймоса (каратель)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="world-card">
+                    <div class="world-header moscow">
+                        <i class="fas fa-city"></i>
+                        <h3>Современная Москва</h3>
+                    </div>
+                    <div class="world-content">
+                        <p>Домодедово и Москва – реальный мир, где начинается магия</p>
+                        <div class="world-characters">
+                            <h4>Персонажи Москвы:</h4>
+                            <ul>
+                                <li>Калерия – мать Гелены</li>
+                                <li>Маринка – младшая сестра Гелены, 8 лет</li>
+                                <li>Денис – отчим Гелены</li>
+                                <li>Артем – младший брат Гелены</li>
+                                <li>Академик Баженова – прабабушка Гелены</li>
+                                <li>Камилла Исаева и Эраст Первоцветов – враги Гелены</li>
+                                <li>Марьян – рокерша, основатель метал-группы "Розарити"</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="world-card">
+                    <div class="world-header organizations">
+                        <i class="fas fa-shield-alt"></i>
+                        <h3>Тайные организации</h3>
+                    </div>
+                    <div class="world-content">
+                        <div class="organization">
+                            <h4>"Мирные"</h4>
+                            <p>Тайная организация, которая стремится завладеть Книгой Мироздания</p>
+                        </div>
+                        <div class="organization">
+                            <h4>Лаборатория Баженовой</h4>
+                            <p>Организация, которая готовит нового хранителя Книги Мироздания</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Особенности романа -->
+    <section class="features">
+        <div class="container">
+            <h2 class="section-title">Уникальность романа</h2>
+            <div class="features-content">
+                <div class="usp-card">
+                    <h3>УТП (Уникальное Торговое Предложение)</h3>
+                    <p>"Для поклонников Макса Фрая и Дмитрия Глуховского, но с научным подходом инженера-космонавтика"</p>
+                </div>
+                
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <i class="fas fa-rocket"></i>
+                        <h4>Научная достоверность</h4>
+                        <p>Автор - кандидат технических наук в области космонавтики</p>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-balance-scale"></i>
+                        <h4>Двойной мир</h4>
+                        <p>Переплетение фэнтези-вселенной и современной реальности</p>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-brain"></i>
+                        <h4>Психологическая глубина</h4>
+                        <p>Исследование тем социальной адаптации и личностного роста</p>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-cogs"></i>
+                        <h4>Технологии древних</h4>
+                        <p>Уникальная концепция "вынужденного средневековья" на обломках высоких технологий</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Об авторе -->
+    <section id="author" class="author">
+        <div class="container">
+            <h2 class="section-title">Автор романа</h2>
+            <div class="author-profile">
+                <div class="author-image">
+                    <img src="maria-barkova.jpg" alt="Мария Баркова">
+                </div>
+                <div class="author-info">
+                    <h3>Баркова Мария Евгеньевна</h3>
+                    
+                    <div class="author-education">
+                        <h4>Образование и профессия:</h4>
+                        <ul>
+                            <li>Кандидат технических наук и докторант в области космонавтики</li>
+                            <li>Senior-разработчик С++, С, Python, Qt, Mathlab</li>
+                            <li>Около 60 научных публикаций</li>
+                        </ul>
+                    </div>
+
+                    <div class="author-achievements">
+                        <h4>Основные достижения:</h4>
+                        <ul>
+                            <li>Инженер РФ-2019 по версии ММИФ-2019</li>
+                            <li>Серебряный и бронзовый призер конкурсов изобретений «Архимед-2019» (Москва)</li>
+                            <li>Призер ICAN-2020 (Торонто)</li>
+                        </ul>
+                    </div>
+
+                    <div class="author-writing">
+                        <h4>Творческий путь:</h4>
+                        <p>Первый полноценный рассказ написала в 7 лет. Создала 6 романов и эпопею "Книга Мироздания" из 6 томов.</p>
+                    </div>
+
+                    <div class="author-social">
+                        <h4>Ресурсы для продвижения:</h4>
+                        <div class="social-links">
+                            <div class="social-item">
+                                <i class="fab fa-tiktok"></i>
+                                <span>30к подписчиков в TikTok</span>
+                            </div>
+                            <div class="social-item">
+                                <i class="fas fa-envelope"></i>
+                                <span>Alttaira@yandex.ru</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- Футер -->
-    <footer>
+    <footer class="footer">
         <div class="container">
-            <p>&copy; 2024 Затравленная заика Гелена. Все права защищены.</p>
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h4>Книга Мироздания</h4>
+                    <p>Грань Реальности</p>
+                </div>
+                <div class="footer-info">
+                    <p>&copy; 2025 Баркова Мария Евгеньевна. Все права защищены.</p>
+                    <p>Проект представлен в tavrida.art</p>
+                </div>
+            </div>
         </div>
     </footer>
-
-    <!-- Модальное окно для изображений -->
-    <div id="image-modal" class="modal">
-        <span class="close">&times;</span>
-        <img class="modal-content" id="modal-image">
-    </div>
 
     <script src="script.js"></script>
 </body>
