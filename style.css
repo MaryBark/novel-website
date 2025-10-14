@@ -224,7 +224,7 @@ section {
 
 /* КОНТЕЙНЕР ДЛЯ ИЗОБРАЖЕНИЯ - КЛЮЧЕВЫЕ ИЗМЕНЕНИЯ */
 .character-image {
-    flex: 0 0 300px; /* Ширина изображения */
+    flex: 0 0 700px; /* Ширина изображения */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -239,7 +239,7 @@ section {
     width: auto; /* Автоматическая ширина */
     height: auto; /* Автоматическая высота */
     max-width: 100%; /* Не больше контейнера */
-    max-height: 350px; /* Максимальная высота */
+    max-height: 700px; /* Максимальная высота */
     object-fit: contain; /* Сохраняем пропорции */
     display: block;
     border-radius: 10px;
