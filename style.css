@@ -197,10 +197,7 @@ section {
 }
 
 /* Персонажи */
-.characters {
-    background: #f8f9fa;
-}
-
+/* Протагонисты - фотографии целиком */
 .protagonists-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
@@ -210,53 +207,153 @@ section {
 
 .character-hero {
     background: white;
-    border-radius: 15px;
+    border-radius: 20px;
     overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.15);
     display: flex;
+    transition: all 0.3s ease;
+    min-height: 300px;
+}
+
+.character-hero:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.2);
 }
 
 .character-image {
-    flex: 0 0 200px;
+    flex: 0 0 800px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
 }
 
 .character-image img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain; /* Показываем всё изображение целиком */
+    object-position: center center;
+    padding: 10px; /* Отступы чтобы изображение не касалось краёв */
+}
+
+.character-hero:hover .character-image img {
+    transform: scale(1.03);
 }
 
 .character-info {
     flex: 1;
-    padding: 2rem;
+    padding: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .character-info h4 {
     font-family: 'Playfair Display', serif;
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     color: var(--primary);
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.8rem;
+    line-height: 1.3;
 }
 
 .character-role {
     color: var(--secondary);
     font-weight: 600;
-    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid var(--light);
 }
 
 .character-goal, .character-flaw {
-    margin-bottom: 1rem;
-    padding: 0.5rem;
+    margin-bottom: 1.2rem;
+    padding: 1rem;
     background: var(--light);
-    border-radius: 5px;
+    border-radius: 10px;
+    border-left: 4px solid var(--scifi);
+    line-height: 1.5;
+}
+
+.character-flaw {
+    border-left-color: var(--accent);
+    background: #ffeaea;
 }
 
 .character-world {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: 0.8rem;
     color: var(--fantasy);
     font-weight: 600;
+    font-size: 1.1rem;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 2px solid var(--light);
+}
+
+.character-world i {
+    font-size: 1.3rem;
+}
+
+/* Адаптивность */
+@media (max-width: 968px) {
+    .protagonists-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .character-hero {
+        flex-direction: column;
+        min-height: auto;
+    }
+    
+    .character-image {
+        flex: none;
+        height: 350px; /* Большая высота для вертикальных фото */
+    }
+}
+
+@media (max-width: 768px) {
+    .protagonists-grid {
+        gap: 1.5rem;
+    }
+    
+    .character-info {
+        padding: 2rem;
+    }
+    
+    .character-info h4 {
+        font-size: 1.5rem;
+    }
+    
+    .character-image {
+        height: 300px;
+    }
+}
+
+@media (max-width: 480px) {
+    .protagonists-grid {
+        gap: 1rem;
+    }
+    
+    .character-hero {
+        margin: 0 10px;
+        border-radius: 15px;
+    }
+    
+    .character-info {
+        padding: 1.5rem;
+    }
+    
+    .character-info h4 {
+        font-size: 1.3rem;
+    }
+    
+    .character-image {
+        height: 250px;
+    }
 }
 
 /* Антагонисты */
@@ -274,7 +371,7 @@ section {
 }
 
 .villain-image {
-    height: 200px;
+    height: 800px;
     background: linear-gradient(135deg, var(--dark), var(--accent));
     display: flex;
     align-items: center;
