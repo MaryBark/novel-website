@@ -1011,3 +1011,594 @@ input, textarea {
     background: var(--fantasy);
     border-radius: 4px;
 }
+
+/* Сетка персонажей Супериоры */
+.characters-grid-superiora {
+    background: linear-gradient(rgba(255,255,255,0.7), rgba(255,255,255,0.7)), 
+                url('superiora-background.jpg') center/cover;
+    backdrop-filter: blur(5px);
+    border-radius: 15px;
+    padding: 2rem;
+    margin-top: 1.5rem;
+}
+
+/* Команды персонажей */
+.character-team {
+    margin-bottom: 2.5rem;
+}
+
+.character-team:last-child {
+    margin-bottom: 0;
+}
+
+.team-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid;
+}
+
+/* Стили для разных команд */
+.light-team .team-header {
+    border-color: #f39c12;
+    color: #f39c12;
+}
+
+.undecided-team .team-header {
+    border-color: #95a5a6;
+    color: #95a5a6;
+}
+
+.dark-team .team-header {
+    border-color: #e74c3c;
+    color: #e74c3c;
+}
+
+.team-header i {
+    font-size: 1.5rem;
+}
+
+.team-header h4 {
+    font-family: 'Playfair Display', serif;
+    margin: 0;
+    font-size: 1.3rem;
+}
+
+/* Сетка персонажей в командах */
+.team-characters {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1.5rem;
+}
+
+.character-item {
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.character-photo {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 1rem;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 4px solid;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+}
+
+/* Цвета рамок для разных команд */
+.light-team .character-photo {
+    border-color: #f39c12;
+    background: linear-gradient(135deg, #f39c12, #e67e22);
+}
+
+.undecided-team .character-photo {
+    border-color: #95a5a6;
+    background: linear-gradient(135deg, #95a5a6, #7f8c8d);
+}
+
+.dark-team .character-photo {
+    border-color: #e74c3c;
+    background: linear-gradient(135deg, #e74c3c, #c0392b);
+}
+
+.character-photo:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+}
+
+.character-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.character-description h5 {
+    font-family: 'Playfair Display', serif;
+    color: var(--primary);
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.character-description p {
+    color: var(--dark);
+    font-size: 0.85rem;
+    line-height: 1.4;
+}
+
+/* Бейджи для статусов */
+.character-status {
+    display: inline-block;
+    padding: 0.2rem 0.6rem;
+    border-radius: 12px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    margin-top: 0.3rem;
+}
+
+.light-team .character-status {
+    background: rgba(243, 156, 18, 0.1);
+    color: #f39c12;
+}
+
+.undecided-team .character-status {
+    background: rgba(149, 165, 166, 0.1);
+    color: #95a5a6;
+}
+
+.dark-team .character-status {
+    background: rgba(231, 76, 60, 0.1);
+    color: #e74c3c;
+}
+
+/* Адаптивность для мобильных */
+@media (max-width: 768px) {
+    .characters-grid-superiora {
+        padding: 1.5rem;
+    }
+    
+    .team-characters {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 1rem;
+    }
+    
+    .character-photo {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .team-header {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .characters-grid-superiora {
+        padding: 1rem;
+    }
+    
+    .team-characters {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .character-photo {
+        width: 70px;
+        height: 70px;
+    }
+    
+    .character-description h5 {
+        font-size: 0.9rem;
+    }
+    
+    .character-description p {
+        font-size: 0.8rem;
+    }
+}
+
+/* Анимации */
+.character-team {
+    opacity: 0;
+    transform: translateX(-30px);
+    animation: slideInRight 0.6s ease forwards;
+}
+
+.light-team { animation-delay: 0.1s; }
+.undecided-team { animation-delay: 0.3s; }
+.dark-team { animation-delay: 0.5s; }
+
+@keyframes slideInRight {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Эффекты при наведении на команду */
+.character-team:hover .team-header {
+    transform: translateX(10px);
+    transition: transform 0.3s ease;
+}
+
+/* Если нет реальных фото - стили для заглушек */
+.character-photo.placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.character-photo.placeholder::before {
+    content: "👑";
+}
+
+.light-team .character-photo.placeholder::before {
+    content: "⚔️";
+}
+
+.undecided-team .character-photo.placeholder::before {
+    content: "❓";
+}
+
+.dark-team .character-photo.placeholder::before {
+    content: "👿";
+}
+
+
+/* Сетка персонажей Москвы */
+.characters-grid-moscow {
+    background: linear-gradient(rgba(255,255,255,0.7), rgba(255,255,255,0.7)), 
+                url('moscow-background.jpg') center/cover;
+    backdrop-filter: blur(8px);
+    border-radius: 15px;
+    padding: 2rem;
+    margin-top: 1.5rem;
+}
+
+.character-row {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.character-item {
+    text-align: center;
+    flex: 0 0 calc(33.333% - 2rem);
+    min-width: 200px;
+}
+
+.character-photo {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 1rem;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 4px solid var(--moscow);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+}
+
+.character-photo:hover {
+    transform: scale(1.1);
+    border-color: var(--fantasy);
+}
+
+.character-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.character-description h5 {
+    font-family: 'Playfair Display', serif;
+    color: var(--primary);
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.character-description p {
+    color: var(--dark);
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+/* Сетка организаций */
+.organizations-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 1rem;
+}
+
+.organization-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+    padding: 2rem;
+    background: var(--light);
+    border-radius: 15px;
+    transition: all 0.3s ease;
+    border-left: 5px solid var(--scifi);
+}
+
+.organization-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.org-icon {
+    flex-shrink: 0;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, var(--scifi), var(--secondary));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.5rem;
+}
+
+.org-info h4 {
+    color: var(--primary);
+    margin-bottom: 0.8rem;
+    font-family: 'Playfair Display', serif;
+}
+
+.org-info p {
+    color: var(--dark);
+    line-height: 1.6;
+}
+
+/* Адаптивность для мобильных */
+@media (max-width: 768px) {
+    .characters-grid-moscow {
+        padding: 1.5rem;
+    }
+    
+    .character-row {
+        gap: 1.5rem;
+    }
+    
+    .character-item {
+        flex: 0 0 calc(50% - 1.5rem);
+        min-width: 150px;
+    }
+    
+    .character-photo {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .organizations-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .organization-item {
+        flex-direction: column;
+        text-align: center;
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .characters-grid-moscow {
+        padding: 1rem;
+    }
+    
+    .character-item {
+        flex: 0 0 100%;
+    }
+    
+    .character-row {
+        gap: 1rem;
+        margin-bottom: 1rem;
+    }
+    
+    .character-photo {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .character-description h5 {
+        font-size: 1rem;
+    }
+    
+    .character-description p {
+        font-size: 0.8rem;
+    }
+}
+
+/* Анимация появления */
+.character-item, .organization-item {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+.character-item:nth-child(1) { animation-delay: 0.1s; }
+.character-item:nth-child(2) { animation-delay: 0.2s; }
+.character-item:nth-child(3) { animation-delay: 0.3s; }
+.character-item:nth-child(4) { animation-delay: 0.4s; }
+.character-item:nth-child(5) { animation-delay: 0.5s; }
+.character-item:nth-child(6) { animation-delay: 0.6s; }
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+
+
+/* Стили для полноэкранных миров */
+.world-fullpage {
+    margin-bottom: 4rem;
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.world-fullpage:hover {
+    transform: translateY(-5px);
+}
+
+.world-fullpage .world-header {
+    padding: 2.5rem;
+    text-align: center;
+}
+
+.world-fullpage .world-content {
+    padding: 0 2.5rem 2.5rem;
+}
+
+.world-description {
+    text-align: center;
+    font-size: 1.2rem;
+    color: var(--dark);
+    margin-bottom: 2rem;
+    font-style: italic;
+    border-bottom: 2px solid var(--light);
+    padding-bottom: 1.5rem;
+}
+
+/* Улучшенные стили для сеток персонажей */
+.characters-grid-superiora,
+.characters-grid-moscow {
+    background: linear-gradient(rgba(255,255,255,0.7), rgba(255,255,255,0.7)), 
+                var(--world-background) center/cover;
+    backdrop-filter: blur(8px);
+    border-radius: 15px;
+    padding: 2.5rem;
+    margin-top: 1rem;
+}
+
+.characters-grid-superiora {
+    --world-background: url('superiora-background.jpg');
+}
+
+.characters-grid-moscow {
+    --world-background: url('moscow-background.jpg');
+}
+
+/* Улучшенные стили для команд */
+.character-team {
+    margin-bottom: 3rem;
+    padding: 2rem;
+    border-radius: 15px;
+    background: rgba(255,255,255,0.8);
+    transition: all 0.3s ease;
+}
+
+.character-team:hover {
+    background: rgba(255,255,255,0.95);
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+}
+
+.light-team {
+    border-left: 5px solid #f39c12;
+}
+
+.undecided-team {
+    border-left: 5px solid #95a5a6;
+}
+
+.dark-team {
+    border-left: 5px solid #e74c3c;
+}
+
+/* Адаптивность для полноэкранных миров */
+@media (max-width: 768px) {
+    .world-fullpage .world-header {
+        padding: 2rem 1.5rem;
+    }
+    
+    .world-fullpage .world-content {
+        padding: 0 1.5rem 2rem;
+    }
+    
+    .characters-grid-superiora,
+    .characters-grid-moscow {
+        padding: 1.5rem;
+    }
+    
+    .character-team {
+        padding: 1.5rem;
+        margin-bottom: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .world-fullpage {
+        margin-bottom: 2rem;
+        border-radius: 15px;
+    }
+    
+    .world-fullpage .world-header {
+        padding: 1.5rem 1rem;
+    }
+    
+    .world-fullpage .world-content {
+        padding: 0 1rem 1.5rem;
+    }
+    
+    .characters-grid-superiora,
+    .characters-grid-moscow {
+        padding: 1rem;
+    }
+    
+    .character-team {
+        padding: 1rem;
+    }
+    
+    .world-description {
+        font-size: 1.1rem;
+        margin-bottom: 1.5rem;
+    }
+}
+
+/* Анимации для появления миров */
+.world-fullpage {
+    opacity: 0;
+    transform: translateY(50px);
+    animation: fadeInUp 0.8s ease forwards;
+}
+
+.world-fullpage:nth-child(1) { animation-delay: 0.1s; }
+.world-fullpage:nth-child(2) { animation-delay: 0.3s; }
+.world-fullpage:nth-child(3) { animation-delay: 0.5s; }
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Индикатор прокрутки между мирами */
+.worlds::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, transparent, var(--fantasy), transparent);
+    transform: translateX(-50%);
+    opacity: 0.3;
+}
+
+
