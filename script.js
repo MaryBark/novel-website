@@ -11,6 +11,9 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Инициализация параллакса
     initParallax();
+
+    // Инициализация аккордеона для творческого пути
+    initWritingAccordion();
 });
 
 // Мобильное меню
@@ -112,6 +115,32 @@ function initParallax() {
             hero.style.transform = `translateY(${rate}px)`;
         });
     }
+}
+
+// Аккордеон для творческого пути
+function initWritingAccordion() {
+    const writingHeaders = document.querySelectorAll('.writing-header');
+    
+    writingHeaders.forEach(header => {
+        header.addEventListener('click', function() {
+            const content = this.nextElementSibling;
+            const isOpen = content.classList.contains('open');
+            
+            // Закрываем все открытые элементы
+            document.querySelectorAll('.writing-content.open').forEach(openContent => {
+                openContent.classList.remove('open');
+            });
+            document.querySelectorAll('.writing-header.active').forEach(activeHeader => {
+                activeHeader.classList.remove('active');
+            });
+            
+            // Открываем текущий, если был закрыт
+            if (!isOpen) {
+                content.classList.add('open');
+                this.classList.add('active');
+            }
+        });
+    });
 }
 
 // Защита от ошибок

@@ -2279,3 +2279,211 @@ input, textarea {
         font-size: 1.2rem;
     }
 }
+
+.author-writing {
+    margin: 30px 0;
+}
+
+.author-writing h4 {
+    color: #2c3e50;
+    margin-bottom: 20px;
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+.writing-accordion {
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+}
+
+.writing-item {
+    border-bottom: 1px solid #e9ecef;
+    background: white;
+}
+
+.writing-item:last-child {
+    border-bottom: none;
+}
+
+.writing-header {
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+}
+
+.writing-header:hover {
+    background: linear-gradient(135deg, #e9ecef 0%, #dee2e6 100%);
+}
+
+.writing-header.active {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.writing-header.active .writing-number {
+    background: rgba(255,255,255,0.9);
+    color: #667eea;
+}
+
+.writing-number {
+    width: 35px;
+    height: 35px;
+    background: #667eea;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 0.9rem;
+    flex-shrink: 0;
+}
+
+.writing-header h5 {
+    margin: 0;
+    flex-grow: 1;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.writing-header i {
+    transition: transform 0.3s ease;
+    color: #6c757d;
+}
+
+.writing-header.active i {
+    transform: rotate(180deg);
+    color: white;
+}
+
+.writing-content {
+    padding: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    background: white;
+}
+
+.writing-content.open {
+    padding: 25px;
+    max-height: 2000px;
+}
+
+.project-timeline {
+    margin-bottom: 25px;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    border-left: 4px solid #28a745;
+}
+
+.project-phase {
+    margin-bottom: 12px;
+    padding-bottom: 12px;
+    border-bottom: 1px dashed #dee2e6;
+}
+
+.project-phase:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+.project-phase strong {
+    color: #2c3e50;
+    display: inline-block;
+    min-width: 80px;
+}
+
+.books-loglains h6 {
+    color: #2c3e50;
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+.loglain-item {
+    margin-bottom: 20px;
+    padding: 15px;
+    background: white;
+    border-radius: 8px;
+    border: 1px solid #e9ecef;
+    transition: all 0.3s ease;
+}
+
+.loglain-item:hover {
+    border-color: #667eea;
+    box-shadow: 0 3px 10px rgba(102, 126, 234, 0.1);
+}
+
+.book-number {
+    display: inline-block;
+    background: #667eea;
+    color: white;
+    padding: 4px 12px;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.loglain-item p {
+    margin: 0;
+    color: #495057;
+    line-height: 1.5;
+    font-style: italic;
+}
+
+/* Анимация появления */
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.writing-content.open .project-timeline,
+.writing-content.open .books-loglains {
+    animation: slideDown 0.5s ease forwards;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .writing-header {
+        padding: 15px;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+    
+    .writing-header h5 {
+        order: 3;
+        flex-basis: 100%;
+        margin-top: 10px;
+    }
+    
+    .writing-content.open {
+        padding: 20px 15px;
+    }
+    
+    .project-timeline {
+        padding: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .writing-number {
+        width: 30px;
+        height: 30px;
+        font-size: 0.8rem;
+    }
+}
