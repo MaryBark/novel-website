@@ -1821,7 +1821,7 @@ input, textarea {
 
 /* Архитектоника романа */
 .plot-architecture {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #97a8f5 0%, #764ba2 100%);
     color: white;
     padding: 80px 0;
 }
@@ -2737,12 +2737,14 @@ input, textarea {
 }
 
 .loglain-item {
+    position: relative;
     margin-bottom: 20px;
     padding: 15px;
     background: white;
     border-radius: 8px;
     border: 1px solid #e9ecef;
     transition: all 0.3s ease;
+    overflow: hidden;
 }
 
 .loglain-item:hover {
@@ -2750,15 +2752,49 @@ input, textarea {
     box-shadow: 0 3px 10px rgba(102, 126, 234, 0.1);
 }
 
-.book-number {
-    display: inline-block;
-    background: #667eea;
-    color: white;
+.status-sticker {
+    position: absolute;
+    top: 10px;
+    right: 10px;
     padding: 4px 12px;
     border-radius: 15px;
-    font-size: 0.8rem;
+    font-size: 0.7rem;
     font-weight: 600;
-    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    z-index: 2;
+}
+
+.status-sticker.ready {
+    background: #28a745;
+    color: white;
+    box-shadow: 0 2px 5px rgba(40, 167, 69, 0.3);
+}
+
+.status-sticker.in-progress {
+    background: #ffc107;
+    color: #212529;
+    box-shadow: 0 2px 5px rgba(255, 193, 7, 0.3);
+}
+
+.status-ready {
+    border-left: 4px solid #28a745;
+}
+
+.status-in-progress {
+    border-left: 4px solid #ffc107;
+}
+
+.book-number {
+    display: block;
+    background: #667eea;
+    color: white;
+    padding: 6px 15px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 12px;
+    margin-right: 80px; /* Оставляем место для стикера */
 }
 
 .loglain-item p {
@@ -2768,51 +2804,29 @@ input, textarea {
     font-style: italic;
 }
 
-/* Анимация появления */
-@keyframes slideDown {
-    from {
-        opacity: 0;
-        transform: translateY(-10px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+/* Анимация для стикеров "в процессе" */
+.status-sticker.in-progress {
+    animation: pulse 2s infinite;
 }
 
-.writing-content.open .project-timeline,
-.writing-content.open .books-loglains {
-    animation: slideDown 0.5s ease forwards;
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
 }
 
 /* Адаптивность */
 @media (max-width: 768px) {
-    .writing-header {
-        padding: 15px;
-        flex-wrap: wrap;
-        gap: 10px;
+    .status-sticker {
+        position: relative;
+        top: auto;
+        right: auto;
+        display: inline-block;
+        margin-bottom: 10px;
     }
     
-    .writing-header h5 {
-        order: 3;
-        flex-basis: 100%;
-        margin-top: 10px;
-    }
-    
-    .writing-content.open {
-        padding: 20px 15px;
-    }
-    
-    .project-timeline {
-        padding: 15px;
-    }
-}
-
-@media (max-width: 480px) {
-    .writing-number {
-        width: 30px;
-        height: 30px;
-        font-size: 0.8rem;
+    .book-number {
+        margin-right: 0;
     }
 }
 
@@ -3151,3 +3165,5 @@ input, textarea {
         flex-direction: column;
     }
 }
+
+
