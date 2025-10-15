@@ -72,6 +72,233 @@ body {
     color: var(--fantasy);
 }
 
+
+/* Аннотация романа */
+.annotation {
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+    border-radius: 20px;
+    padding: 3rem;
+    margin-bottom: 4rem;
+    border-left: 5px solid var(--fantasy);
+    position: relative;
+    overflow: hidden;
+}
+
+.annotation::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--fantasy), var(--scifi), var(--secondary));
+}
+
+.annotation-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.annotation-text {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+    color: var(--dark);
+    text-align: left;
+}
+
+.annotation-highlight {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--primary);
+    display: block;
+    text-align: center;
+    margin-bottom: 2rem;
+    background: linear-gradient(135deg, var(--fantasy), var(--scifi));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.annotation-questions {
+    margin-top: 2.5rem;
+    padding-top: 2rem;
+    border-top: 2px solid rgba(155, 89, 182, 0.2);
+}
+
+.question {
+    font-style: italic;
+    font-size: 1.3rem;
+    color: var(--fantasy);
+    text-align: center;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.question:last-child {
+    margin-bottom: 0;
+}
+
+/* Сетка о романе */
+.about-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.about-card {
+    background: white;
+    padding: 2.5rem 2rem;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    border-top: 4px solid transparent;
+}
+
+.about-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+}
+
+.about-card:nth-child(1) {
+    border-top-color: var(--secondary);
+}
+
+.about-card:nth-child(2) {
+    border-top-color: var(--fantasy);
+}
+
+.about-card:nth-child(3) {
+    border-top-color: var(--scifi);
+}
+
+.about-card i {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+    display: block;
+}
+
+.about-card:nth-child(1) i {
+    color: var(--secondary);
+}
+
+.about-card:nth-child(2) i {
+    color: var(--fantasy);
+}
+
+.about-card:nth-child(3) i {
+    color: var(--scifi);
+}
+
+.about-card h3 {
+    color: var(--primary);
+    margin-bottom: 1rem;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+}
+
+.about-card p {
+    color: var(--dark);
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Адаптивность для аннотации */
+@media (max-width: 768px) {
+    .annotation {
+        padding: 2rem 1.5rem;
+        margin-bottom: 3rem;
+        border-radius: 15px;
+    }
+    
+    .annotation-text {
+        font-size: 1.1rem;
+        text-align: center;
+    }
+    
+    .annotation-highlight {
+        font-size: 1.2rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .question {
+        font-size: 1.1rem;
+    }
+    
+    .about-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .about-card {
+        padding: 2rem 1.5rem;
+    }
+    
+    .about-card i {
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .annotation {
+        padding: 1.5rem 1rem;
+        margin-bottom: 2rem;
+    }
+    
+    .annotation-text {
+        font-size: 1rem;
+        line-height: 1.6;
+    }
+    
+    .annotation-highlight {
+        font-size: 1.1rem;
+    }
+    
+    .question {
+        font-size: 1rem;
+    }
+    
+    .annotation-questions {
+        margin-top: 2rem;
+        padding-top: 1.5rem;
+    }
+    
+    .about-card {
+        padding: 1.5rem 1rem;
+    }
+    
+    .about-card h3 {
+        font-size: 1.2rem;
+    }
+}
+
+/* Анимации для появления */
+.annotation {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 0.8s ease forwards;
+}
+
+.about-card {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 0.8s ease forwards;
+}
+
+.about-card:nth-child(1) { animation-delay: 0.2s; }
+.about-card:nth-child(2) { animation-delay: 0.4s; }
+.about-card:nth-child(3) { animation-delay: 0.6s; }
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 /* Герой-секция */
 .hero {
     height: 100vh;
