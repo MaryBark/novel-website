@@ -3167,3 +3167,258 @@ input, textarea {
 }
 
 
+        .author {
+            padding: 80px 0;
+            background-color: #f9f9f9;
+        }
+
+        .author-profile {
+            display: flex;
+            gap: 40px;
+            align-items: flex-start;
+        }
+
+        .author-image {
+            flex: 0 0 300px;
+        }
+
+        .author-image img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .author-info {
+            flex: 1;
+        }
+
+        .author-info h3 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            color: #2c3e50;
+        }
+
+        .author-education, .author-achievements, .author-writing, .author-social {
+            margin-bottom: 30px;
+        }
+
+        .author-education h4, .author-achievements h4, .author-writing h4, .author-social h4 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: #2c3e50;
+            border-left: 4px solid #e94560;
+            padding-left: 10px;
+        }
+
+        .author-education ul, .author-achievements ul {
+            list-style-type: disc;
+            margin-left: 20px;
+        }
+
+        .author-education li, .author-achievements li {
+            margin-bottom: 10px;
+            line-height: 1.5;
+        }
+
+        .author-education a, .author-achievements a {
+            color: #e94560;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .author-education a:hover, .author-achievements a:hover {
+            text-decoration: underline;
+        }
+
+        /* Аккордеон творческого пути */
+        .writing-accordion {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .writing-item {
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .writing-header {
+            display: flex;
+            align-items: center;
+            padding: 20px;
+            background: white;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .writing-header:hover {
+            background: #f5f5f5;
+        }
+
+        .writing-header.active {
+            background: #f0f0f0;
+        }
+
+        .writing-number {
+            background: #e94560;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+
+        .writing-header h5 {
+            flex: 1;
+            margin: 0;
+            font-size: 1.1rem;
+            color: #2c3e50;
+        }
+
+        .writing-header i {
+            transition: transform 0.3s;
+        }
+
+        .writing-header.active i {
+            transform: rotate(180deg);
+        }
+
+        .writing-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            background: white;
+        }
+
+        .writing-content.open {
+            max-height: 2000px;
+        }
+
+        .writing-content p {
+            padding: 20px;
+            margin: 0;
+        }
+
+        /* Таймлайн проекта */
+        .project-timeline {
+            padding: 20px;
+            border-left: 3px solid #e94560;
+            margin: 20px 0;
+        }
+
+        .project-phase {
+            margin-bottom: 15px;
+            padding-left: 15px;
+            position: relative;
+        }
+
+        .project-phase::before {
+            content: '';
+            position: absolute;
+            left: -8px;
+            top: 8px;
+            width: 13px;
+            height: 13px;
+            background: #e94560;
+            border-radius: 50%;
+        }
+
+        .project-phase strong {
+            color: #e94560;
+        }
+
+        /* Логлайны книг */
+        .books-loglains {
+            margin-top: 25px;
+        }
+
+        .books-loglains h6 {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+
+        .loglain-item {
+            background: white;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 15px;
+            position: relative;
+        }
+
+        .status-sticker {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        .status-sticker.ready {
+            background: #4CAF50;
+            color: white;
+        }
+
+        .status-sticker.in-progress {
+            background: #FF9800;
+            color: white;
+        }
+
+        .book-number {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #2c3e50;
+            font-size: 1.1rem;
+        }
+
+        .loglain-item p {
+            margin: 0;
+            line-height: 1.5;
+        }
+
+        /* Социальные ссылки */
+        .social-links {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .social-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 15px;
+            background: white;
+            border-radius: 8px;
+            border: 1px solid #e0e0e0;
+        }
+
+        .social-item i {
+            color: #e94560;
+            font-size: 1.2rem;
+            width: 20px;
+        }
+
+        .social-item span {
+            margin-right: 10px;
+        }
+
+        .social-item a {
+            color: #e94560;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .social-item a:hover {
+            text-decoration: underline;
+        }

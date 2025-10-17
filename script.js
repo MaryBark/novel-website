@@ -184,31 +184,31 @@ function initParallax() {
     }
 }
 
-// Аккордеон для творческого пути
-function initWritingAccordion() {
-    const writingHeaders = document.querySelectorAll('.writing-header');
-    
-    writingHeaders.forEach(header => {
-        header.addEventListener('click', function() {
-            const content = this.nextElementSibling;
-            const isOpen = content.classList.contains('open');
+        // Инициализация аккордеона для творческого пути
+ document.addEventListener('DOMContentLoaded', function() {
+            const writingHeaders = document.querySelectorAll('.writing-header');
             
-            // Закрываем все открытые элементы
-            document.querySelectorAll('.writing-content.open').forEach(openContent => {
-                openContent.classList.remove('open');
+            writingHeaders.forEach(header => {
+                header.addEventListener('click', function() {
+                    const content = this.nextElementSibling;
+                    const isOpen = content.classList.contains('open');
+                    
+                    // Закрываем все открытые элементы
+                    document.querySelectorAll('.writing-content.open').forEach(openContent => {
+                        openContent.classList.remove('open');
+                    });
+                    document.querySelectorAll('.writing-header.active').forEach(activeHeader => {
+                        activeHeader.classList.remove('active');
+                    });
+                    
+                    // Открываем текущий, если был закрыт
+                    if (!isOpen) {
+                        content.classList.add('open');
+                        this.classList.add('active');
+                    }
+                });
             });
-            document.querySelectorAll('.writing-header.active').forEach(activeHeader => {
-                activeHeader.classList.remove('active');
-            });
-            
-            // Открываем текущий, если был закрыт
-            if (!isOpen) {
-                content.classList.add('open');
-                this.classList.add('active');
-            }
-        });
-    });
-}
+ });
 
 // Адаптивная обработка изображений для мобильных устройств
 function optimizeImagesForMobile() {
