@@ -3167,77 +3167,7 @@ input, textarea {
 }
 
 
-        .author-social {
-            max-width: 600px;
-            margin: 0 auto;
-            background: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-
-        .author-social h4 {
-            font-size: 1.4rem;
-            margin-bottom: 20px;
-            color: #2c3e50;
-            border-left: 4px solid #e94560;
-            padding-left: 10px;
-        }
-
-        .social-links {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        .social-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 15px;
-            padding: 15px;
-            background: #f8f9fa;
-            border-radius: 8px;
-            border: 1px solid #e9ecef;
-            transition: all 0.3s ease;
-        }
-
-        .social-item:hover {
-            background: #e9ecef;
-            transform: translateX(5px);
-        }
-
-        .social-item i {
-            color: #e94560;
-            font-size: 1.2rem;
-            width: 20px;
-            text-align: center;
-            margin-top: 2px;
-            flex-shrink: 0;
-        }
-
-        .social-content {
-            display: flex;
-            flex-direction: column;
-            gap: 5px;
-        }
-
-        .social-content span {
-            display: block;
-            line-height: 1.4;
-        }
-
-        .social-item a {
-            color: #e94560;
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-
-        .social-item a:hover {
-            color: #c1354a;
-            text-decoration: underline;
-        }
-
+      
         /* Адаптивность для мобильных устройств */
         @media (max-width: 768px) {
             .author-social {
