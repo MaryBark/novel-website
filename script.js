@@ -1,5 +1,8 @@
 // Основная функция при загрузке DOM
 document.addEventListener('DOMContentLoaded', function() {
+    // Инициализация адаптивного viewport для мобильных устройств
+    initResponsiveViewport();
+    
     // Инициализация мобильного меню
     initMobileMenu();
     
@@ -16,6 +19,46 @@ document.addEventListener('DOMContentLoaded', function() {
     initWritingAccordion();
 });
 
+// Адаптивный viewport для мобильных устройств
+function initResponsiveViewport() {
+    // Устанавливаем viewport для правильного отображения на мобильных устройствах
+    const viewport = document.querySelector('meta[name="viewport"]');
+    
+    // Функция для обновления viewport
+    function updateViewport() {
+        const isMobile = window.innerWidth <= 768;
+        const isTablet = window.innerWidth <= 1024 && window.innerWidth > 768;
+        
+        if (isMobile) {
+            // Для мобильных устройств - фиксированная ширина и запрет масштабирования
+            viewport.setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no');
+        } else if (isTablet) {
+            // Для планшетов - адаптивная ширина с возможностью масштабирования
+            viewport.setAttribute('content', 'width=device-width, initial-scale=1.0');
+        } else {
+            // Для десктопов - стандартные настройки
+            viewport.setAttribute('content', 'width=device-width, initial-scale=1.0');
+        }
+        
+        // Динамическое обновление CSS переменных для адаптивности
+        document.documentElement.style.setProperty('--viewport-width', window.innerWidth + 'px');
+        document.documentElement.style.setProperty('--viewport-height', window.innerHeight + 'px');
+    }
+    
+    // Обновляем при загрузке и изменении размера окна
+    updateViewport();
+    window.addEventListener('resize', updateViewport);
+    window.addEventListener('orientationchange', function() {
+        setTimeout(updateViewport, 100);
+    });
+    
+    // Добавляем CSS переменные если их нет
+    if (!document.documentElement.style.getPropertyValue('--viewport-width')) {
+        document.documentElement.style.setProperty('--viewport-width', '100vw');
+        document.documentElement.style.setProperty('--viewport-height', '100vh');
+    }
+}
+
 // Мобильное меню
 function initMobileMenu() {
     const hamburger = document.getElementById('hamburger');
@@ -25,6 +68,12 @@ function initMobileMenu() {
         hamburger.addEventListener('click', function() {
             navMenu.classList.toggle('active');
             hamburger.classList.toggle('active');
+            // Блокируем скролл при открытом меню на мобильных устройствах
+            if (navMenu.classList.contains('active')) {
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.body.style.overflow = '';
+            }
         });
         
         // Закрытие меню при клике на ссылку
@@ -33,15 +82,24 @@ function initMobileMenu() {
             link.addEventListener('click', function() {
                 navMenu.classList.remove('active');
                 hamburger.classList.remove('active');
+                document.body.style.overflow = '';
             });
         });
         
         // Закрытие меню при клике вне его
         document.addEventListener('click', function(event) {
-            if (!event.target.closest('.nav-container')) {
+            if (!event.target.closest('.nav-container') && !event.target.closest('#hamburger')) {
                 navMenu.classList.remove('active');
                 hamburger.classList.remove('active');
+                document.body.style.overflow = '';
             }
+        });
+        
+        // Закрытие меню при изменении ориентации устройства
+        window.addEventListener('orientationchange', function() {
+            navMenu.classList.remove('active');
+            hamburger.classList.remove('active');
+            document.body.style.overflow = '';
         });
     }
 }
@@ -68,6 +126,15 @@ function initSmoothScroll() {
                         top: offsetTop,
                         behavior: 'smooth'
                     });
+                    
+                    // Закрываем мобильное меню если оно открыто
+                    const navMenu = document.getElementById('nav-menu');
+                    const hamburger = document.getElementById('hamburger');
+                    if (navMenu && navMenu.classList.contains('active')) {
+                        navMenu.classList.remove('active');
+                        hamburger.classList.remove('active');
+                        document.body.style.overflow = '';
+                    }
                 }
             }
         });
@@ -143,6 +210,48 @@ function initWritingAccordion() {
     });
 }
 
+// Адаптивная обработка изображений для мобильных устройств
+function optimizeImagesForMobile() {
+    const images = document.querySelectorAll('img');
+    const isMobile = window.innerWidth <= 768;
+    
+    images.forEach(img => {
+        if (isMobile) {
+            // Для мобильных устройств добавляем атрибуты для оптимизации
+            img.setAttribute('loading', 'lazy');
+            img.setAttribute('decoding', 'async');
+        }
+        
+        // Обработка ошибок загрузки изображений
+        img.addEventListener('error', function() {
+            this.alt = 'Изображение не загружено';
+            console.warn('Не удалось загрузить изображение:', this.src);
+        });
+    });
+}
+
+// Оптимизация для мобильных устройств
+function initMobileOptimizations() {
+    const isMobile = window.innerWidth <= 768;
+    
+    if (isMobile) {
+        document.documentElement.classList.add('mobile-device');
+        
+        // Оптимизация касаний
+        document.addEventListener('touchstart', function() {}, { passive: true });
+        
+        // Предотвращение масштабирования при двойном тапе
+        let lastTouchEnd = 0;
+        document.addEventListener('touchend', function(event) {
+            const now = Date.now();
+            if (now - lastTouchEnd <= 300) {
+                event.preventDefault();
+            }
+            lastTouchEnd = now;
+        }, { passive: false });
+    }
+}
+
 // Защита от ошибок
 window.addEventListener('error', function(e) {
     console.log('Произошла ошибка:', e.error);
@@ -151,7 +260,12 @@ window.addEventListener('error', function(e) {
 // Оптимизация для мобильных устройств
 if ('ontouchstart' in window) {
     document.documentElement.classList.add('touch-device');
+    initMobileOptimizations();
 }
+
+// Инициализация оптимизации изображений
+optimizeImagesForMobile();
+window.addEventListener('resize', optimizeImagesForMobile);
 
 // Предотвращение быстрых множественных кликов
 function preventMultipleClicks(element, timeout = 1000) {
@@ -170,4 +284,15 @@ function preventMultipleClicks(element, timeout = 1000) {
 // Применяем ко всем CTA кнопкам
 document.querySelectorAll('.cta-button').forEach(btn => {
     preventMultipleClicks(btn);
+});
+
+// Дополнительные обработчики для улучшения пользовательского опыта на мобильных устройствах
+window.addEventListener('load', function() {
+    // Убедимся, что все ресурсы загружены перед показом контента
+    document.body.classList.add('loaded');
+    
+    // Инициализация Service Worker для кэширования (если нужно)
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/sw.js').catch(console.error);
+    }
 });
