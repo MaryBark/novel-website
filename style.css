@@ -383,6 +383,25 @@ body {
     transform: translateY(-2px);
 }
 
+        /* Специальные стили для десктопов */
+        @media (min-width: 769px) {
+            .hero-container {
+                min-height: 60px; /* Минимальная высота для десктопов */
+            }
+            
+            .hero-image {
+                display: flex !important; /* Принудительное отображение */
+                align-items: center;
+                justify-content: center;
+            }
+            
+            .hero-image img {
+                min-width: 40px; /* Минимальная ширина */
+                min-height: 40px; /* Минимальная высота */
+            }
+        }
+
+
 /* Секции */
 section {
     padding: 100px 0;
