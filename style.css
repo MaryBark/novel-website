@@ -325,6 +325,19 @@ body {
     display: inline-block;
 }
 
+.hero-image {
+            flex-shrink: 0;
+        }
+
+        .hero-image img {
+            width: 110px;
+            height: 37px;
+            border-radius: 8px;
+            object-fit: cover;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            transition: transform 0.3s ease;
+        }
+
 .hero-title {
     font-family: 'Playfair Display', serif;
     font-size: 3.5rem;
