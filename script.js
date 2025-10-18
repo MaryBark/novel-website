@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Инициализация параллакса
     initParallax();
 
-    // Инициализация аккордеона для творческого пути
+    // Инициализация дерева для творческого пути
     initWritingAccordion();
 });
 
@@ -184,7 +184,7 @@ function initParallax() {
     }
 }
 
-// Аккордеон для творческого пути
+// Дерево творческого пути
 function initWritingAccordion() {
     const writingHeaders = document.querySelectorAll('.writing-header');
     
