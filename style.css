@@ -747,6 +747,44 @@ section {
     color: var(--fantasy);
 }
 
+
+ /* Адаптивность для мобильных устройств */
+        @media (max-width: 768px) {
+            .author-social {
+                padding: 20px;
+                margin: 0 10px;
+            }
+            
+            .author-social h4 {
+                font-size: 1.2rem;
+            }
+            
+            .social-item {
+                padding: 12px;
+                gap: 12px;
+            }
+            
+            .social-item i {
+                font-size: 1.1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .author-social {
+                padding: 15px;
+            }
+            
+            .social-item {
+                flex-direction: column;
+                gap: 8px;
+                text-align: center;
+            }
+            
+            .social-item i {
+                align-self: center;
+            }
+        }
+
 /* Футер */
 .footer {
     background: var(--dark);
@@ -3176,39 +3214,4 @@ input, textarea {
 }
 
       
-        /* Адаптивность для мобильных устройств */
-        @media (max-width: 768px) {
-            .author-social {
-                padding: 20px;
-                margin: 0 10px;
-            }
-            
-            .author-social h4 {
-                font-size: 1.2rem;
-            }
-            
-            .social-item {
-                padding: 12px;
-                gap: 12px;
-            }
-            
-            .social-item i {
-                font-size: 1.1rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .author-social {
-                padding: 15px;
-            }
-            
-            .social-item {
-                flex-direction: column;
-                gap: 8px;
-                text-align: center;
-            }
-            
-            .social-item i {
-                align-self: center;
-            }
-        }
+       
