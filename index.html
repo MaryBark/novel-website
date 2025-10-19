@@ -24,6 +24,7 @@
             <a href="#analogues" class="nav-link">Референсы</a>
             <a href="#conlang" class="nav-link">Искусственные языки</a>
             <a href="#metal-opera" class="nav-link">Метал-опера</a>
+            <a href="#world-map" class="nav-link">Карта</a>
             <a href="#author" class="nav-link">Автор и контакты</a>
         </div>
         <div class="hamburger" id="hamburger">
@@ -66,7 +67,7 @@
         <div class="annotation">
             <div class="annotation-content">
                 <p class="annotation-text">
-                    <span class="annotation-highlight">Мир из рукописи затравленной заики Гелены ожил.</span>
+                    <span class="annotation-highlight">Мир из рукописи затравленной заики Гелены ожил</span>
                 </p>
                 
                 <p class="annotation-text">
@@ -94,7 +95,7 @@
             <div class="about-card">
                 <i class="fas fa-map-marked-alt"></i>
                 <h3>Места действия</h3>
-                <p>Выдуманный мир Супериора • Домодедово • Москва</p>
+                <p>Выдуманный мир Супериора • Москва • Домодедово</p>
             </div>
             <div class="about-card">
                 <i class="fas fa-dragon"></i>
@@ -1021,7 +1022,7 @@
                 </div>
             </div>
             <div class="opera-description">
-                <p>В рамках вселенной "Книги Мироздания" я создала полноценную метал-оперу «Чернобог», написанную для вымышленной группы «Розарити». Хотя в первой книге опера упоминается лишь фрагментарно, её сюжет и символика играют решающую роль в развитии событий 4, 5 и 6 книг эпопеи.</p>
+                <p>В рамках вселенной "Книги Мироздания" я создала полноценную метал-оперу «Чернобог» по воссозданному мной по летописям мифу о Чернобоге (1-7 песни, дальше - фантазия), написанную для вымышленной группы «Розарити». Хотя в первой книге опера упоминается лишь фрагментарно, её сюжет и символика играют решающую роль в развитии событий 4, 5 и 6 книг эпопеи.</p>
                 <p>«Чернобог» рассказывает эпическую историю противостояния двух божественных сил — Белобога и Чернобога, олицетворяющих извечную борьбу света и тьмы, созидания и разрушения. Создана по восстановленному мифу.</p>
             </div>
         </div>
@@ -1130,6 +1131,69 @@
     </div>
 </section>
 
+    <section id="world-map" class="map-section">
+        <div class="container">
+            <h2 class="section-title">Супериора</h2>
+            <div class="map-container">
+                <div class="map-header">
+                    <h3 class="map-title">География вымышленного мира</h3>
+                   <!-- <p class="map-subtitle">Исследуйте континенты, королевства и магические земли грани реальности, созданной Книгой Мироздания"</p> -->
+                </div>
+                
+                <div class="map-image-container">
+                    <!-- Замените src на путь к вашей карте -->
+                    <img src="images/map.jpg" alt="Карта мира Книги Мироздания" class="map-image" 
+                         onerror="this.style.display='none'; document.getElementById('map-placeholder').style.display='flex';">
+                    
+                    <!-- Запасной вариант если изображение не загрузится -->
+                    <div id="map-placeholder" class="map-placeholder" style="display: none;">
+                        <i class="fas fa-map"></i>
+                        <span>Карта мира загружается...</span>
+                    </div>
+                </div>
+                
+               <!-- <div class="map-legend">
+                    <div class="legend-item">
+                        <div class="legend-color" style="background: #4CAF50;"></div>
+                        <span class="legend-text">Лесные территории</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background: #FF9800;"></div>
+                        <span class="legend-text">Горные цепи</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background: #2196F3;"></div>
+                        <span class="legend-text">Водные пространства</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background: #9C27B0;"></div>
+                        <span class="legend-text">Магические зоны</span>
+                    </div>
+                </div>
+                
+                <div class="map-features">
+                    <div class="feature-card">
+                        <h4><i class="fas fa-mountain"></i> Континент Супериора</h4>
+                        <p>Центральный континент, где разворачиваются основные события эпопеи. Здесь расположены столицы королевств и древние магические центры.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4><i class="fas fa-water"></i> Океан Вечности</h4>
+                        <p>Бескрайний океан, разделяющий континенты. Говорят, в его глубинах скрыты древние цивилизации и затонувшие города.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4><i class="fas fa-tree"></i> Запретный лес</h4>
+                        <p>Древний лес, где обитают мифические существа и хранятся тайны древних богов. Доступ в лес ограничен магическими барьерами.</p>
+                    </div>
+                </div>  -->
+
+
+
+            </div>
+        </div>
+    </section>
+
+
+
     <!-- Об авторе -->
     <section id="author" class="author">
         <div class="container">
@@ -1146,8 +1210,8 @@
                         <ul>
                             <li>Кандидат технических наук и докторант в области космонавтики</li>
                             <li>Senior-разработчик С++, С, Python, Qt, Mathlab, js, html</li>
-                            <li>Этот сайт написала сама на js и html в IDE VSCode<a href="https://github.com/MaryBark/novel-website" target="_blank" rel="noopener noreferrer">Исходники</a></li>
-                            <li>Около 60 научных публикаций. <a href="https://disk.yandex.ru/i/xlqlw3neWDIe2A" target="_blank" rel="noopener noreferrer">Список публикаций</a></li>
+                            <li>Этот сайт написала сама на js и html в IDE VSCode <a href="https://github.com/MaryBark/novel-website" target="_blank" rel="noopener noreferrer">Исходники</a></li>
+                            <li>Около 60 научных публикаций <a href="https://disk.yandex.ru/i/xlqlw3neWDIe2A" target="_blank" rel="noopener noreferrer">Список публикаций</a></li>
                         </ul>
                     </div>
 
