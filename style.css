@@ -10,6 +10,7 @@
     --accent: #e74c3c;
     --fantasy: #9b59b6;
     --scifi: #1abc9c;
+    --utp: #ffa500;
     --light: #ecf0f1;
     --dark: #2c3e50;
     --superiora: #8e44ad;
@@ -91,7 +92,7 @@ body {
     left: 0;
     right: 0;
     height: 3px;
-    background: linear-gradient(90deg, var(--fantasy), var(--scifi), var(--secondary));
+    background: linear-gradient(90deg, var(--fantasy), var(--scifi), var(--secondary), var(--utp));
 }
 
 .annotation-content {
@@ -175,6 +176,10 @@ body {
     border-top-color: var(--scifi);
 }
 
+.about-card:nth-child(4) {
+    border-top-color: var(--utp);
+}
+
 .about-card i {
     font-size: 3rem;
     margin-bottom: 1.5rem;
@@ -191,6 +196,10 @@ body {
 
 .about-card:nth-child(3) i {
     color: var(--scifi);
+}
+
+.about-card:nth-child(4) i {
+    color: var(--utp);
 }
 
 .about-card h3 {
